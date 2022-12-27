@@ -7,9 +7,6 @@ def solution(s):
             tmp += s[i]
             answer += tmp[0].upper() + tmp[1:]
             tmp = ''
-        # elif i == len(s)-1:
-        #     tmp += s[i]
-        #     answer += tmp[0].upper() + tmp[1:]
         else:
             tmp += s[i]
     return answer
