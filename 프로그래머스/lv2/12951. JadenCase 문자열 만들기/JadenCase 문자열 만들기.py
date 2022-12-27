@@ -1,12 +1,12 @@
 def solution(s):
+    answer_list =[]
     answer = ''
-    s = list(s.lower())
-    tmp = ''
-    for i in range(len(s)):
-        if (s[i] == " ") or (i == len(s)-1):
-            tmp += s[i]
-            answer += tmp[0].upper() + tmp[1:]
-            tmp = ''
+    for i in s:
+        if i == ' ':
+            answer_list.append(answer.capitalize())
+            answer_list.append(' ')
+            answer = ''
         else:
-            tmp += s[i]
-    return answer
+            answer += i
+    answer_list.append(answer.capitalize())
+    return ''.join(answer_list)
