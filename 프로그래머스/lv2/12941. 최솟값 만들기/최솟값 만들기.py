@@ -2,7 +2,7 @@ def solution(A,B):
     answer = 0
 
     A.sort()
-    B.sort(key=lambda x : -x)
+    B.sort(reverse = True)
     
     for a, b in zip(A, B):
         answer += a*b
