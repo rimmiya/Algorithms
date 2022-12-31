@@ -3,7 +3,6 @@ import java.util.*;
 
 /**
  * 
- * @author s_cheol.park
  * https://www.acmicpc.net/problem/3176
  * 도로 네트워크
  * LCA (최소공통조상)
