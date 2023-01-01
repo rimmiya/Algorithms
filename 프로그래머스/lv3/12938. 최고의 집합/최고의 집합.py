@@ -3,11 +3,12 @@ def solution(n, s):
     
     if n > s:
         return [-1]
-    
-    for _ in range(n):
-        answer.append(s // n)
+
+    r = s // n
+    q = s % n
         
-    for i in range(s - sum(answer)):
-        answer[i] += 1
-    answer.sort()
+    for _ in range(n - q):
+        answer.append(r)
+    for _ in range(q):
+        answer.append(r+1)
     return answer
