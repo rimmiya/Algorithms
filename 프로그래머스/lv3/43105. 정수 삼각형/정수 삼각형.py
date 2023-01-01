@@ -1,18 +1,12 @@
-def dp(triangle, i, j, result):
-    left = result[i][j] + triangle[i+1][j]
-    right = result[i][j] + triangle[i+1][j+1]
-    result[i+1][j] = max(result[i+1][j], left)
-    result[i+1][j+1] = max(result[i+1][j+1], right)
-    return result
-    
 def solution(triangle):
-    answer = 0
-    result = [[0] * i for i in range(1, len(triangle) + 1)]
-
-    result[0] = triangle[0]
     
-    for i in range(len(triangle) - 1):
-        for j in range(len(triangle[i+1])-1):
-            result = dp(triangle, i, j, result)
+    for i in range(1, len(triangle)):
+        for j in range(i+1):
+            if j == 0 :
+                triangle[i][0] += triangle[i-1][0]
+            elif j == i:
+                triangle[i][-1] += triangle[i-1][-1]
+            else:
+                triangle[i][j] += max(triangle[i-1][j-1], triangle[i-1][j]) 
             
-    return max(result[-1])
+    return max(triangle[-1])
