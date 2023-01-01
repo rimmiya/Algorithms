@@ -1,7 +1,6 @@
 from collections import deque
 
 def solution(operations):
-    answer = []
     
     max_queue = deque()
     
@@ -19,5 +18,5 @@ def solution(operations):
         
     if not max_queue:
         return [0,0]
-    else:
-        return [max_queue.popleft(), max_queue.pop()]
+    
+    return [max_queue.popleft(), max_queue.pop()]
