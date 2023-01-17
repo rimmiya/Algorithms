@@ -1,15 +1,20 @@
-def dfs(n, computers, visited, i):
-    visited[i] = True
-    for j in range(n):
-        if computers[i][j] == 1:
-            computers[i][j] = 0
-            dfs(n, computers, visited, j)
+def dfs(n, computers, x, y):
+    if x <= -1 or x >= n or y <= -1 or y >= n:
+        return False
+    if computers[x][y] == 1:
+        computers[x][y] = 0
+        # 상 하 좌 우
+        dfs(n, computers, x - 1, y)
+        dfs(n, computers, x + 1, y)
+        dfs(n, computers, x, y - 1)
+        dfs(n, computers, x, y + 1)
+        return True
+    return False
     
 def solution(n, computers):
     answer = 0
-    visited = [False for _ in range(n)]
     for i in range(n):
-        if not visited[i]:
-            dfs(n, computers, visited, i)
-            answer += 1
+        for j in range(n):
+            if dfs(n, computers, i, j) == True:
+                answer += 1
     return answer
