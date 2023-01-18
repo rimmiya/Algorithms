@@ -5,12 +5,9 @@ def solution(people, limit):
     i = 0
     j = len(people) - 1
     while i < j:
-        if people[i] + people[j] > limit:
-            j -= 1
-            
-        else:
+        if people[i] + people[j] <= limit:
             i += 1
-            j -= 1
+        j -= 1
         answer += 1
     if i == j:
         answer += 1
