@@ -8,5 +8,5 @@ def solution(s):
             if stack and stack[-1] == '(':
                 stack.pop()
             else:
-                stack.append(c)
+                return False
     return not stack
